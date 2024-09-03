@@ -1,0 +1,56 @@
+
+.blogWrapper{
+    width: 70%;
+
+}
+
+.blogTitle{
+    padding-top: 100px;
+    font-size: 38px;
+}
+
+.dateAndIconWrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.blogDate{
+    margin-top: 6px;
+    text-decoration: underline;
+    color: var(--fontColor);
+}
+
+.likeButton{
+    background-color: transparent;
+    border: none;
+}
+
+.likeButton i{
+    color: var(--mainColor);
+    size: 40px;
+}
+
+.blogDescription{
+    color: var(--fontColor);
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 50px;
+
+}
+
+.blogImg{
+    width: 30%;
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.imgContainer{
+    background-color: var(--secondaryColor);
+    height: 60%;
+    display: flex;
+    justify-content: center; /* center image horizontally */
+    align-items: center; /* center image vertically*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

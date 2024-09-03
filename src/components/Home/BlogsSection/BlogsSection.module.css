@@ -1,0 +1,131 @@
+
+/* BLOGS */
+.sectionHeader{
+    text-transform: capitalize;
+    padding-top: 120px;
+    margin-bottom: 12px;
+}
+
+.addBlogLink{
+    text-decoration: none;
+    background-color: var(--successColor);
+    border-radius: 6%;
+    color: white;
+    padding: 4px;
+
+}
+
+#blogsSection{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.blogItem {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    margin-bottom: 20px;
+    margin-right: 20px ;
+}
+  
+.blogItem:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+  
+.blogItem .container {
+    padding: 2px 16px;
+}
+
+
+.blogImg{
+    width: 30%;
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.imgContainer{
+    background-color: var(--secondaryColor);
+    height: 150px;
+    display: flex;
+    justify-content: center; /* center image horizontally */
+    align-items: center; /* center image vertically*/
+}
+
+.blogTitle{
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.blogTitle a{
+    text-decoration: none;
+    color: black;
+}
+
+.blogTitle a:hover{
+    text-decoration: underline;
+}
+
+.blogDate{
+    font-size: 12px;
+    color: var(--fontColor);
+    text-decoration: underline;
+}
+
+.blogDescription{
+    margin-top: 5px;
+    color: var(--fontColor);
+}
+
+.updateBtn, .deleteBtn{
+    cursor: pointer;
+    padding: 6px;
+    margin: 10px 2px;
+    color: white;
+    border: none;
+    border-radius: 6%;
+    transition-property: height;
+    transition: 0.3s;
+    transition-duration: 1s;
+}
+
+.updateBtn:hover, .deleteBtn:hover{
+    scale: .95;
+}
+
+.updateBtn a {
+    text-decoration: none;
+    color: white;
+}
+
+.updateBtn{
+    background-color: var(--successColor);
+}
+
+.deleteBtn{
+    background-color: var(--dangerColor);
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { /* tablets */
+    .blogItem{
+        width: 45%; 
+    }
+}
+@media (max-width: 767.98px) {  /* small and extra small devices*/
+    .blogItem{
+        width: 100%; 
+    }
+    .homeHeader{
+        text-align: center;
+    }
+
+ }
+
+
+
+

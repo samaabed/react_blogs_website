@@ -1,0 +1,72 @@
+
+
+.formWrapper{
+    padding-top: 120px;  
+}
+
+.formHeader{
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+#blogTitle, #blogDescription{
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+#blogDescription{
+    height: 40vh;
+    resize: none; 
+}
+
+.inputError{
+    border-color: var(--dangerColor);
+
+}
+
+.inputErrorMessage{
+    color: var(--dangerColor);
+
+}
+
+.inputHeader{
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.formRow{
+    margin-bottom: 10px;
+}
+
+.addBlogBtn{
+    cursor: pointer;
+    padding: 6px;
+    margin: 10px 2px;
+    color: white;
+    border: none;
+    background-color: var(--successColor);
+    border-radius: 6%;
+    text-transform: capitalize;
+    width: 100px;
+    
+}
+
+.disabledAddBtn{
+    cursor: not-allowed;
+    padding: 6px;
+    margin: 10px 2px;
+    color: white;
+    border: none;
+    background-color: grey;
+    border-radius: 6%;
+    text-transform: capitalize;
+    width: 100px;
+}
+
+
+
+
+

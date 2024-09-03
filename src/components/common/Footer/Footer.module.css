@@ -1,0 +1,16 @@
+.footer {
+    background-color: var(--mainColor);
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 0;
+}

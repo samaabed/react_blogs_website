@@ -1,0 +1,14 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button{
+    padding: 5px;
+    margin: 5px 5px 50px;
+}
+
+.activePageBtn{
+    background-color: var(--mainColor);
+    color: white;
+}
