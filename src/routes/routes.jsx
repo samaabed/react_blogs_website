@@ -4,6 +4,9 @@ import DisplayBlog from "../pages/DisplayBlogPage";
 import AddBlog from "../pages/AddBlogPage";
 import { Navigate } from "react-router-dom";
 import UpdateBlog from "../pages/UpdateBlogPage/UpdateBlogPage";
+import BlogServices from "../services/blog-services"
+
+
 
 export const ROUTES = [
   {
@@ -26,6 +29,9 @@ export const ROUTES = [
       {
         path: "displayBlog/:id",
         element: <DisplayBlog />,
+        loader: async ({ params }) => {
+          console.log('test')
+        },
       },
       {
         path: "addBlog",

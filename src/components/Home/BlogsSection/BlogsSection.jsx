@@ -7,34 +7,46 @@ import { Link } from "react-router-dom";
 import Loading from "../../../components/common/Loading";
 import Pagination from "../../common/Pagination";
 import blogImage from "../../../assets/images/dashboard.png";
-
+import { setLoading } from "../../../store/slices/loaderSlice";
+import { selectLoading } from "../../../store/slices/loaderSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 function BlogsSection() {
   const [blogs, setBlogs] = useState(null);
   const [error, setError] = useState(false);
-  const [isLoading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [currentBlogs, setCurrentBlogs] = useState(null);
   const blogsPerPage = 6;
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
+    //reset loading state when th component mounts
+    dispatch(setLoading(true));
+
     setTimeout(() => {
       BlogServices.fetchBlogs()
         .then((blogs) => {
           BlogUtils.sortBlogsByDate(blogs);
           setBlogs(blogs);
-          setLoading(false);
+          dispatch(setLoading(false));
           // initial set of blogs to display
           setCurrentBlogs(blogs.slice(0, blogsPerPage));
         })
         .catch(() => {
           BlogUtils.errorAlert("fetch the blogs");
           setError(true);
-          setLoading(false);
+          dispatch(setLoading(false));
         });
       console.log("use effect called");
     }, 1000);
+
+    //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
+    return () => {
+      // clearTimeout(timeoutId);
+      dispatch(setLoading(false));
+    };
   }, []);
 
   useEffect(() => {
@@ -84,7 +96,9 @@ function BlogsSection() {
 
   return (
     <>
-      {isLoading && <Loading />}
+      {/* {isLoading && <Loading />} */}
+
+      {useSelector(selectLoading) && <Loading />}
 
       {currentBlogs && (
         <>
@@ -120,11 +134,8 @@ function BlogsSection() {
                       Delete
                     </button>
 
-                     <button
-                      type="button"
-                      className={styles.updateBtn}
-                    >
-                     <Link to={`/updateBlog/${blog.id}`}>Update</Link> 
+                    <button type="button" className={styles.updateBtn}>
+                      <Link to={`/updateBlog/${blog.id}`}>Update</Link>
                     </button>
                   </div>
                 </div>
