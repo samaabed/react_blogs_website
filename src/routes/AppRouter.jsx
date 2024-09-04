@@ -18,9 +18,6 @@ const router = createBrowserRouter(
             />
           ))}
 
-          
-
-
         </Route>
       ))
     )
