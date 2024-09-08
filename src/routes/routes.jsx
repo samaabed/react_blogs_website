@@ -25,13 +25,18 @@ export const ROUTES = [
       {
         path: "home",
         element: <Home />,
+        loader: async () => {
+          const reeponse =  await BlogServices.fetchBlogs();
+          return reeponse;
+        }
       },
       {
         path: "displayBlog/:id",
         element: <DisplayBlog />,
-        loader: async ({ params }) => {
-          console.log('test')
-        },
+        // loader: async ({ params }) => {
+        //   console.log('test')
+        // },
+      
       },
       {
         path: "addBlog",

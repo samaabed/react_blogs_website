@@ -23,7 +23,7 @@ export default loaderSlice.reducer;
 
 export const { setLoading } = loaderSlice.actions;
 
-export const selectLoading = (state) => state.loader.loading;
+
 
 
 

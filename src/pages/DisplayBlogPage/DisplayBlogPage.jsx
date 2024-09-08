@@ -4,7 +4,7 @@ import BlogsServices from "../../services/blog-services";
 import Loading from "../../components/common/Loading/Loading";
 import BlogDetails from "../../components/DisplayBlog";
 import { setLoading } from "../../store/slices/loaderSlice";
-import { selectLoading } from "../../store/slices/loaderSlice";
+
 import { useSelector, useDispatch } from "react-redux";
 
 const DisplayBlog = () => {
@@ -38,7 +38,7 @@ const DisplayBlog = () => {
 
   return (
     <>
-      {useSelector(selectLoading) && <Loading />}
+
       { blog && <BlogDetails blog={blog} />}
       {error && <p>error</p>}
     </>
