@@ -3,12 +3,11 @@ import { useEffect, useState, useRef } from "react";
 import BlogServices from "../../../services/blog-services";
 import BlogUtils from "../../../utils/blog-utils";
 import swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Loading from "../../../components/common/Loading";
 import Pagination from "../../common/Pagination";
 import blogImage from "../../../assets/images/dashboard.png";
 import { setLoading } from "../../../store/slices/loaderSlice";
-import { selectLoading } from "../../../store/slices/loaderSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 function BlogsSection() {
@@ -20,6 +19,9 @@ function BlogsSection() {
   const blogsPerPage = 6;
 
   const dispatch = useDispatch();
+
+  const data = useLoaderData();
+  console.log(data);
 
   useEffect(() => {
     //reset loading state when th component mounts
@@ -44,7 +46,6 @@ function BlogsSection() {
 
     //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
     return () => {
-      // clearTimeout(timeoutId);
       dispatch(setLoading(false));
     };
   }, []);
@@ -98,7 +99,7 @@ function BlogsSection() {
     <>
       {/* {isLoading && <Loading />} */}
 
-      {useSelector(selectLoading) && <Loading />}
+      
 
       {currentBlogs && (
         <>
