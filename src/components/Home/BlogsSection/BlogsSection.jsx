@@ -11,13 +11,14 @@ import { useDispatch } from "react-redux";
 import i18n from "../../../i18n";
 import { useContext } from "react";
 import LanguageContext from "../../../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 
 
 
 function BlogsSection() {
-  const [blogs, setBlogs] = useState(null); 
-  const [error, setError] = useState(false);
+  // const [blogs, setBlogs] = useState(null); 
+  // const [error, setError] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [currentBlogs, setCurrentBlogs] = useState(null);
@@ -25,64 +26,31 @@ function BlogsSection() {
 
   const dispatch = useDispatch();
 
-  const data = useLoaderData().blogs;
-  console.log(data);
-
  
-  // const { t } = useTranslation();
-  // const blogs = t('blogs', { returnObjects: true });
-  const language  = useContext(LanguageContext);
-  console.log(language);
-
-  // useEffect(() => {
-    
-  //   //reset loading state when th component mounts
-  //   dispatch(setLoading(true));
-   
-  //   setTimeout(() => {
-  //     BlogServices.fetchBlogs(language)
-  //       .then((blogs) => {
-  //         const allBlogs = blogs.blogs;
-  //         BlogUtils.sortBlogsByDate(allBlogs);
-  //         setBlogs(allBlogs);
-  //         dispatch(setLoading(false));
-  //         // initial set of blogs to display
-  //         setCurrentBlogs(allBlogs.slice(0, blogsPerPage));
-  //         console.log(allBlogs);
-  //       })
-  //       .catch((error) => {
-  //         BlogUtils.errorAlert(error);
-  //         setError(true);
-  //         dispatch(setLoading(false));
-  //       });
-  //     console.log("use effect called");
-  //   }, 1000);
-
-  //   //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
-  //   return () => {
-  //     dispatch(setLoading(false));
-  //   };
-  // }, []);
-
+  const { t } = useTranslation();
+  const blogs = t('blogs', { returnObjects: true });
+  // const language  = useContext(LanguageContext);
+ 
+  
   useEffect(() => {
-    
     //reset loading state when th component mounts
     dispatch(setLoading(true));
+    dispatch(setLoading(false));
    
-    setTimeout(() => {
-      BlogUtils.sortBlogsByDate(data);
-      setBlogs(data);
-      dispatch(setLoading(false));
-      // initial set of blogs to display
-      setCurrentBlogs(data.slice(0, blogsPerPage));
+    // setTimeout(() => {
+    //   BlogUtils.sortBlogsByDate(data);
+    //   setBlogs(data);
+    //   dispatch(setLoading(false));
+    //   // initial set of blogs to display
+    //   setCurrentBlogs(data.slice(0, blogsPerPage));
      
-      //   .catch((error) => {
-      //     BlogUtils.errorAlert(error);
-      //     setError(true);
-      //     dispatch(setLoading(false));
-      //   });
-      // console.log("use effect called");
-    }, 1000);
+    //   //   .catch((error) => {
+    //   //     BlogUtils.errorAlert(error);
+    //   //     setError(true);
+    //   //     dispatch(setLoading(false));
+    //   //   });
+    //   // console.log("use effect called");
+    // }, 1000);
 
     //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
     return () => {
@@ -90,16 +58,20 @@ function BlogsSection() {
     };
   }, []);
 
-  useEffect(() => {
-    dispatch(setLoading(false));
+  // useEffect(() => {
 
-    // update currentBlogs when currentPage or blogsPerPage changes
-    if (blogs != null) {
-      const lastBlogIndex = currentPage * blogsPerPage;
-      const firstBlogIndex = lastBlogIndex - blogsPerPage;
-      setCurrentBlogs(blogs.slice(firstBlogIndex, lastBlogIndex));
-    }
-  }, [currentPage, blogs]);
+  //   // update currentBlogs when currentPage or blogsPerPage changes
+  //   if (blogs != null) {
+  //     const lastBlogIndex = currentPage * blogsPerPage;
+  //     const firstBlogIndex = lastBlogIndex - blogsPerPage;
+  //     setCurrentBlogs(blogs.slice(firstBlogIndex, lastBlogIndex));
+  //     console.log("blogs");
+  //     console.log(blogs);
+  //     console.log("current blogs ")
+  //     console.log(currentBlogs);
+  //   }
+    
+  // }, [currentPage]);
 
   const handleDelete = (blogId) => {
     swal
@@ -140,10 +112,10 @@ function BlogsSection() {
   return (
     <>
 
-      {currentBlogs && (
+      {blogs && (
         <>
           <header>
-            <h1 className={styles.sectionHeader}>currently browsing: design</h1>
+            <h1 className={styles.sectionHeader}>currently browsing: {t("common.home")}</h1>
           </header>
           <button onClick={() => i18n.changeLanguage("ar")}>ar</button>
           <button onClick={() => i18n.changeLanguage("en")}>en</button>
@@ -153,7 +125,7 @@ function BlogsSection() {
             </Link>
 
             <div id={styles.blogsSection}>
-              {currentBlogs.map((blog, index) => (
+              {blogs.map((blog, index) => (
                 <div key={index} className={styles.blogItem}>
                   <div className={styles.imgContainer}>
                     <Link to={`/displayBlog/${blog.id}`}>
@@ -194,7 +166,7 @@ function BlogsSection() {
         </>
       )}
 
-      {error && <p>error</p>}
+      {/* {error && <p>error</p>} */}
     </>
   );
 }
