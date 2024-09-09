@@ -33,10 +33,6 @@ export const ROUTES = [
       {
         path: "displayBlog/:id",
         element: <DisplayBlog />,
-        // loader: async ({ params }) => {
-        //   console.log('test')
-        // },
-      
       },
       {
         path: "addBlog",

@@ -1,17 +1,22 @@
 import styles from "./BlogsSection.module.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import BlogServices from "../../../services/blog-services";
 import BlogUtils from "../../../utils/blog-utils";
 import swal from "sweetalert2";
 import { Link, useLoaderData } from "react-router-dom";
-import Loading from "../../../components/common/Loading";
 import Pagination from "../../common/Pagination";
 import blogImage from "../../../assets/images/dashboard.png";
 import { setLoading } from "../../../store/slices/loaderSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import i18n from "../../../i18n";
+import { useContext } from "react";
+import LanguageContext from "../../../contexts/LanguageContext";
+
+
+
 
 function BlogsSection() {
-  const [blogs, setBlogs] = useState(null);
+  const [blogs, setBlogs] = useState(null); 
   const [error, setError] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,28 +25,63 @@ function BlogsSection() {
 
   const dispatch = useDispatch();
 
-  const data = useLoaderData();
+  const data = useLoaderData().blogs;
   console.log(data);
 
+ 
+  // const { t } = useTranslation();
+  // const blogs = t('blogs', { returnObjects: true });
+  const language  = useContext(LanguageContext);
+  console.log(language);
+
+  // useEffect(() => {
+    
+  //   //reset loading state when th component mounts
+  //   dispatch(setLoading(true));
+   
+  //   setTimeout(() => {
+  //     BlogServices.fetchBlogs(language)
+  //       .then((blogs) => {
+  //         const allBlogs = blogs.blogs;
+  //         BlogUtils.sortBlogsByDate(allBlogs);
+  //         setBlogs(allBlogs);
+  //         dispatch(setLoading(false));
+  //         // initial set of blogs to display
+  //         setCurrentBlogs(allBlogs.slice(0, blogsPerPage));
+  //         console.log(allBlogs);
+  //       })
+  //       .catch((error) => {
+  //         BlogUtils.errorAlert(error);
+  //         setError(true);
+  //         dispatch(setLoading(false));
+  //       });
+  //     console.log("use effect called");
+  //   }, 1000);
+
+  //   //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
+  //   return () => {
+  //     dispatch(setLoading(false));
+  //   };
+  // }, []);
+
   useEffect(() => {
+    
     //reset loading state when th component mounts
     dispatch(setLoading(true));
-
+   
     setTimeout(() => {
-      BlogServices.fetchBlogs()
-        .then((blogs) => {
-          BlogUtils.sortBlogsByDate(blogs);
-          setBlogs(blogs);
-          dispatch(setLoading(false));
-          // initial set of blogs to display
-          setCurrentBlogs(blogs.slice(0, blogsPerPage));
-        })
-        .catch(() => {
-          BlogUtils.errorAlert("fetch the blogs");
-          setError(true);
-          dispatch(setLoading(false));
-        });
-      console.log("use effect called");
+      BlogUtils.sortBlogsByDate(data);
+      setBlogs(data);
+      dispatch(setLoading(false));
+      // initial set of blogs to display
+      setCurrentBlogs(data.slice(0, blogsPerPage));
+     
+      //   .catch((error) => {
+      //     BlogUtils.errorAlert(error);
+      //     setError(true);
+      //     dispatch(setLoading(false));
+      //   });
+      // console.log("use effect called");
     }, 1000);
 
     //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
@@ -51,6 +91,8 @@ function BlogsSection() {
   }, []);
 
   useEffect(() => {
+    dispatch(setLoading(false));
+
     // update currentBlogs when currentPage or blogsPerPage changes
     if (blogs != null) {
       const lastBlogIndex = currentPage * blogsPerPage;
@@ -77,7 +119,7 @@ function BlogsSection() {
               // also update in client side so we don't have to fetch the blogs again to view the update for the user
               const updatedBlogs = blogs.filter((blog) => blog.id != blogId);
               BlogUtils.sortBlogsByDate(updatedBlogs);
-              setBlogs(updatedBlogs);
+              setBlogs(updatedBlogs); 
             })
             .then(() => {
               swal.fire({
@@ -94,18 +136,17 @@ function BlogsSection() {
         }
       });
   };
-
+ 
   return (
     <>
-      {/* {isLoading && <Loading />} */}
-
-      
 
       {currentBlogs && (
         <>
           <header>
             <h1 className={styles.sectionHeader}>currently browsing: design</h1>
           </header>
+          <button onClick={() => i18n.changeLanguage("ar")}>ar</button>
+          <button onClick={() => i18n.changeLanguage("en")}>en</button>
           <main>
             <Link className={styles.addBlogLink} to="/addBlog">
               Add New Blog
@@ -121,7 +162,7 @@ function BlogsSection() {
                   </div>
                   <div className="container">
                     <h2 className={styles.blogTitle}>
-                      <Link to={`/displayBlog/${blog.id}`}>{blog.title}</Link>
+                      <Link to={`/displayBlog/${blog.id}`}>{ blog.title }</Link>
                     </h2>
                     <p className={styles.blogDate}>{blog.date}</p>
                     <p className={styles.blogDescription}>
