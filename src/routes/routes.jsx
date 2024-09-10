@@ -1,10 +1,9 @@
 import Layout from "../pages/Layout/Layout";
 import Home from "../pages/HomePage";
 import DisplayBlog from "../pages/DisplayBlogPage";
-import AddBlog from "../pages/AddBlogPage";
-import { Navigate } from "react-router-dom";
-import UpdateBlog from "../pages/UpdateBlogPage/UpdateBlogPage";
+import { Navigate, useParams } from "react-router-dom";
 import BlogServices from "../services/blog-services"
+import FormWithValidation from "../components/common/FormWithValidation/FormWithVaildation";
 
 
 
@@ -35,14 +34,13 @@ export const ROUTES = [
         element: <DisplayBlog />,
       },
       {
-        path: "addBlog",
-        element: <AddBlog />,
-      },
-
-      {
         path: "updateBlog/:id",
-        element: <UpdateBlog />,
+        element: <FormWithValidation formType="updateBlog"/>
       },
+      {
+        path: "addBlog",
+        element: <FormWithValidation formType="addBlog"/>
+      }
     ],
   },
 ];

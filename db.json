@@ -52,7 +52,17 @@
       }
     ],
     "common": {
-      "home": "home"
+      "home": "home",
+      "delete": "delete",
+      "update": "update",
+      "add": "add",
+      "addNewBlog": "add new blog",
+      "currentlyBrowsing": "currently browsing",
+      "desgin": "design",
+      "updateBlog": "update blog",
+      "blogTitle": "blog title",
+      "blogDescription": "blog description",
+      "allRightsReserved": "2024 onextrapixel. all rights reserved."
     }
     
   },
@@ -102,7 +112,18 @@
       }
     ],
     "common": {
-      "home": "الرئيسية"
+      "home": "الرئيسية",
+      "delete": "حذف",
+      "update": "تعديل",
+      "add": "اضافة",
+      "addNewBlog": "اضافة مقال جديد",
+      "currentlyBrowsing": "القسم الحالي",
+      "desgin": "التصميم",
+      "updateBlog": "تعديل المقال",
+      "blogTitle": "عنوان المقال",
+      "blogDescription": "وصف المقال",
+      "allRightsReserved": "جميع الحقوق محفوظة"
+
     }
   }
 }

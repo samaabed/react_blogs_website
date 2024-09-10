@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import styles from "./Footer.module.css";
 
 function Footer() {
+    const {t} = useTranslation();
     return (
         <footer className={styles.footer}>
-            <p>&#9400; 2024 onextrapixel. all rights reserved.</p>
+            <p>&#9400; {t("common.allRightsReserved")}</p>
         </footer>
 
     );

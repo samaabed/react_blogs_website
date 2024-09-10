@@ -8,7 +8,6 @@ i18n
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
-    // lng: "ar", // if you're using a language detector, do not define the lng option
     fallbackLng: "en",
     detection: {
       order: [
@@ -22,14 +21,9 @@ i18n
       ], // from where the user language should be detected
       caches: ["cookie"], // where to cache user language
     },
-    //FIX:
     backend: { 
       loadPath: "http://localhost:3000/{{lng}}"
-      // loadPath: "/locale/{{lng}}/translation.json", // path to load resources (translations)
     },
-    // //FIX
-    // ns: ['common', 'home'], // namespaces to load
-    // defaultNS: 'common',
   });
 
 

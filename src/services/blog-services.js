@@ -17,12 +17,19 @@ class BlogsServices{
         return response.json();
     };
     
-    static fetchBlogById = async (blogId) => {
-        const response = await fetch(`http://localhost:3000/blogs/${blogId}`);
+    static fetchBlogById = async (blogId, language) => {
+        // const response = await fetch(`http://localhost:3000/blogs/${blogId}`);
+        const response = await fetch(`http://localhost:3000/${language}`);
+        const responseJson = await response.json();
+        const allBlogs = responseJson.blogs;
+
+       
+        const foundBlog = allBlogs.find((blog) => blog.id === blogId);
         if (!response.ok) {
             throw new Error('Error: Could not fetch the selected blog.');
         }
-        return response.json();
+        // return response.json();
+        return foundBlog;
     }
     
     

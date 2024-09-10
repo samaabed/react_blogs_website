@@ -4,16 +4,18 @@ import { useState } from 'react';
 
 
 const Home = () => {
-    const [language, setLanguage] = useState();
+    const [language, setLanguage] = useState("en");
 
 const toggleLanguage = () => {
   setLanguage(language === "en" ? "ar" : "en");
 };
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage }}>
+        // <LanguageContext.Provider value={{ language, toggleLanguage }}>
+        // <BlogsSection />
+        // </ LanguageContext.Provider >
         <BlogsSection />
-        </ LanguageContext.Provider >
+
     );
 }
  

@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import {  useParams } from "react-router-dom";
 import BlogsServices from "../../services/blog-services";
-import Loading from "../../components/common/Loading/Loading";
 import BlogDetails from "../../components/DisplayBlog";
 import { setLoading } from "../../store/slices/loaderSlice";
-
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import i18n from "../../i18n";
 
 const DisplayBlog = () => {
   const { id } = useParams();
@@ -13,13 +12,14 @@ const DisplayBlog = () => {
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
   
+  const language = i18n.language;
   
   useEffect(() => {
     //reset loading state when th component mounts
     dispatch(setLoading(true));
     
     setTimeout(() => {
-      BlogsServices.fetchBlogById(id)
+      BlogsServices.fetchBlogById(id, language)
         .then((blog) => {
           setBlog(blog);
           dispatch(setLoading(false));
@@ -38,7 +38,6 @@ const DisplayBlog = () => {
 
   return (
     <>
-
       { blog && <BlogDetails blog={blog} />}
       {error && <p>error</p>}
     </>
