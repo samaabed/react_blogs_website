@@ -11,14 +11,14 @@
 }
 
 .navbarContentWraper{
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content:flex-start;
     align-items: center;
 }
 
 .navbarLogo{
-    width: 180px;
+    width: 200px;
     cursor: pointer;
 }
 
@@ -47,11 +47,8 @@
     color: white;
 }
 
-.fa-bars{
+.navbarIcon{
     color: var(--secondaryColor);
-    /* display: none; */
-    visibility: hidden;
-    /* display: none; change icon display to inline-block to control its width */
     width: 100px;
     text-align: center; /* center icon within its width */
     cursor: pointer;
@@ -71,13 +68,8 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     width: 100px;
     margin-left: 10px;
-    display: none;
 }
 
-
-.dropdownMenu:hover #dropdownContent{
-    /* display: block; */
-}
 
 
 @media (max-width: 991.98px) { /* tablets and smaller */
@@ -85,9 +77,8 @@
         display: none;
     }
 
-    .fa-bars{
+    .navbarIcon{
         visibility: visible;
-        /* display: block; */
 
     }
 

@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import BlogServices from "../../../services/blog-services";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 const languageRegex = /^[\x00-\x7F]+$/;
@@ -27,16 +29,19 @@ const initialValues = {
   description: "",
 };
 
-const FormWithValidation = ({ blogId, formType }) => {
+const FormWithValidation = ({formType}) => {
   const [blogTitle, setBlogTitle] = useState('');
   const [blogDescription, setBlogDescription] = useState('');
 
+  
+  const { blogId } = useParams();
 
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: formValidationSchema,
     onSubmit: (values, { resetForm }) => {
-      if (formType == "add blog") {
+      if (formType == "addBlog") {
+      
         BlogServices.addBlog(values.title, values.description)
           .then(() => {
             BlogUtils.successAlert("added");
@@ -45,7 +50,7 @@ const FormWithValidation = ({ blogId, formType }) => {
           .catch((e) => {
             BlogUtils.errorAlert(e.message);
           });
-      } else if (formType == "update blog") {
+      } else if (formType == "updateBlog") {
         BlogServices.updateBlog(blogId, values.title, values.description)
           .then(() => {
             BlogUtils.successAlert("updated");
@@ -67,15 +72,16 @@ const FormWithValidation = ({ blogId, formType }) => {
     }
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className={styles.formWrapper}>
       <h2 className={styles.formHeader}>
-        {formType == "add blog" ? "add new blog" : "update blog"}
+        {formType == "addBlog" ? t("common.addNewBlog") : t("common.updateBlog")}
       </h2>
       <form onSubmit={formik.handleSubmit} className={styles.addBlogForm}>
         <div className={styles.formRow}>
           <label htmlFor={styles.blogTitle} className={styles.inputHeader}>
-            BlogTitle
+            {t("common.blogTitle")}
           </label>
 
           {/*
@@ -108,7 +114,8 @@ const FormWithValidation = ({ blogId, formType }) => {
             htmlFor={styles.blogDescription}
             className={styles.inputHeader}
           >
-            Blog Description
+            {t("common.blogDescription")}
+
           </label>
           <textarea
             name="description"
@@ -139,7 +146,7 @@ const FormWithValidation = ({ blogId, formType }) => {
               : styles.disabledAddBtn
           }
         >
-          {formType == "add blog" ? "Add blog" : "Update blog"}
+          {formType == "addBlog" ? t("common.add") : t("common.update")}
         </button>
       </form>
     </div>

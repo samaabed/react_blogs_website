@@ -1,21 +1,35 @@
+import LanguageContext from "../contexts/LanguageContext";
 import BlogUtils from "../utils/blog-utils";
+import Cookies from "js-cookie"; 
+
 
 class BlogsServices{
 
-    static fetchBlogs = async () => {
-        const response = await fetch('http://localhost:3000/blogs');
+    static fetchBlogs = async (language) => {
+        
+        const cachedLang = Cookies.get("i18next") || "en";
+        // const response = await fetch('http://localhost:3000/blogs');
+        const response = await fetch(`http://localhost:3000/${cachedLang}`);
+
         if (!response.ok) {
             throw new Error('Error: Could not fetch the blogs.');
         }
         return response.json();
     };
     
-    static fetchBlogById = async (blogId) => {
-        const response = await fetch(`http://localhost:3000/blogs/${blogId}`);
+    static fetchBlogById = async (blogId, language) => {
+        // const response = await fetch(`http://localhost:3000/blogs/${blogId}`);
+        const response = await fetch(`http://localhost:3000/${language}`);
+        const responseJson = await response.json();
+        const allBlogs = responseJson.blogs;
+
+       
+        const foundBlog = allBlogs.find((blog) => blog.id === blogId);
         if (!response.ok) {
             throw new Error('Error: Could not fetch the selected blog.');
         }
-        return response.json();
+        // return response.json();
+        return foundBlog;
     }
     
     
