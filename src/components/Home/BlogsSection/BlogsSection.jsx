@@ -20,14 +20,14 @@ function BlogsSection() {
 
   const dispatch = useDispatch();
 
-  const { t } = useTranslation();
-  // const { language, toggleLanguage}  = useContext(LanguageContext);
-  // console.log("lang "+language);
+  const { t } = useTranslation();;
   const language = i18n.language;
   
   useEffect(() => {
     //reset loading state when th component mounts
     dispatch(setLoading(true));
+
+    setCurrentPage(1);
 
     setTimeout(() => {
       let allBlogs = t('blogs', { returnObjects: true });
@@ -97,8 +97,8 @@ function BlogsSection() {
           <header>
             <h1 className={styles.sectionHeader}>{t("common.currentlyBrowsing")}: {t("common.desgin")}</h1>
           </header>
-          <button onClick={() => {i18n.changeLanguage("ar"); setCurrentPage(1);}}>ar</button>
-          <button onClick={() => {i18n.changeLanguage("en"); setCurrentPage(1);}}>en</button>
+          {/* <button onClick={() => {i18n.changeLanguage("ar"); setCurrentPage(1);}}>ar</button>
+          <button onClick={() => {i18n.changeLanguage("en"); setCurrentPage(1);}}>en</button> */}
           <main>
             <Link className={styles.addBlogLink} to="/addBlog">
               {t("common.addNewBlog")}
@@ -107,33 +107,6 @@ function BlogsSection() {
             <div id={styles.blogsSection}>
               {currentBlogs.map((blog, index) => (
                 <BlogsItem key={index} blog={blog} />
-                // <div key={index} className={styles.blogItem}>
-                //   <div className={styles.imgContainer}>
-                //     <Link to={`/displayBlog/${blog.id}`}>
-                //       <img className={styles.blogImg} src={blogImage} alt="" />
-                //     </Link>
-                //   </div>
-                //   <div className="container">
-                //     <h2 className={styles.blogTitle}>
-                //       <Link to={`/displayBlog/${blog.id}`}>{ blog.title }</Link>
-                //     </h2>
-                //     <p className={styles.blogDate}>{blog.date}</p>
-                //     <p className={styles.blogDescription}>
-                //       {BlogUtils.truncateDescription(blog.description)}
-                //     </p>
-                //     <button
-                //       type="button"
-                //       className={styles.deleteBtn}
-                //       onClick={() => handleDelete(blog.id)}
-                //     >
-                //       Delete
-                //     </button>
-
-                //     <button type="button" className={styles.updateBtn}>
-                //       <Link to={`/updateBlog/${blog.id}`}>Update</Link>
-                //     </button>
-                //   </div>
-                // </div>
               ))}
             </div>
 

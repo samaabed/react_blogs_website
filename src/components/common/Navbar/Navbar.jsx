@@ -14,6 +14,12 @@ const Navbar = () => {
     const { t } = useTranslation();
     const [dropDown, setDropDown] = useState(false);
 
+    const handleLanguageChange = (lang) => {
+        i18n.changeLanguage(lang);
+        const dir = lang == "ar" ? "rtl" : "ltr";
+        document.documentElement.setAttribute('dir', dir);
+    }
+
     return (
         <>
             <nav className={styles.navBar}>
@@ -28,8 +34,8 @@ const Navbar = () => {
                         <FontAwesomeIcon icon={faBars} className={styles.navbarIcon} onClick={() => { setDropDown(!dropDown) }}/>
                         {
                             dropDown ?   <div id={styles.dropdownContent}>
-                            <a href="#" onClick={()=>i18n.changeLanguage("ar")}>العربية</a>
-                            <a href="#" onClick={()=>i18n.changeLanguage("en")}>English</a>
+                            <a href="#" onClick={()=>handleLanguageChange("ar")}>العربية</a>
+                            <a href="#" onClick={()=>handleLanguageChange("en")}>English</a>
                         </div> : ''
                         }
                        
