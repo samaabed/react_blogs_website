@@ -15,6 +15,7 @@ const toggleLanguage = () => {
         // <BlogsSection />
         // </ LanguageContext.Provider >
         <BlogsSection />
+      
 
     );
 }

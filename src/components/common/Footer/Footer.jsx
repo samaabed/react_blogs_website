@@ -5,7 +5,7 @@ function Footer() {
     const {t} = useTranslation();
     return (
         <footer className={styles.footer}>
-            <p>&#9400; {t("common.allRightsReserved")}</p>
+            <p>&#9400; {t("allRightsReserved")}</p>
         </footer>
 
     );

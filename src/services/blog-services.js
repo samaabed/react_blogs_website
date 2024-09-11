@@ -1,14 +1,13 @@
-import LanguageContext from "../contexts/LanguageContext";
+
 import BlogUtils from "../utils/blog-utils";
 import Cookies from "js-cookie"; 
-
+import i18n from "../i18n";
 
 class BlogsServices{
 
-    static fetchBlogs = async (language) => {
-        
+    // fetch Arabic or English blogs based on cached language.
+    static fetchBlogs = async () => {
         const cachedLang = Cookies.get("i18next") || "en";
-        // const response = await fetch('http://localhost:3000/blogs');
         const response = await fetch(`http://localhost:3000/${cachedLang}`);
 
         if (!response.ok) {
@@ -17,24 +16,20 @@ class BlogsServices{
         return response.json();
     };
     
+    // fetch from the passed language's endpoint using its id and passed language 
     static fetchBlogById = async (blogId, language) => {
-        // const response = await fetch(`http://localhost:3000/blogs/${blogId}`);
-        const response = await fetch(`http://localhost:3000/${language}`);
-        const responseJson = await response.json();
-        const allBlogs = responseJson.blogs;
+        const response = await fetch(`http://localhost:3000/${language}/${blogId}`);
 
-       
-        const foundBlog = allBlogs.find((blog) => blog.id === blogId);
         if (!response.ok) {
             throw new Error('Error: Could not fetch the selected blog.');
         }
-        // return response.json();
-        return foundBlog;
+
+        return response.json();
     }
     
-    
-    static deleteBlog = async (blogId) => {
-        const response = await fetch(`http://localhost:3000/blogs/${blogId}`, {
+    // delete a blog that belongs to the passed language's endpoint using its id 
+    static deleteBlog = async (blogId, language) => {
+        const response = await fetch(`http://localhost:3000/${language}/${blogId}`, {
             method: 'DELETE'
         });
         if (!response.ok) {
@@ -42,15 +37,16 @@ class BlogsServices{
         }
     
     };
-    
-    static updateBlog = async (blogId, title, description) => {
+
+    // update a blog that belongs to the passed language's endpoint using its id 
+    static updateBlog = async (blogId, title, description, language) => {
         const updatedBlog = {
             title: title,
             description: description
         };
     
-        const response = await fetch(`http://localhost:3000/blogs/${blogId}`, {
-            method: 'PATCH', //partial modification
+        const response = await fetch(`http://localhost:3000/${language}/${blogId}`, {
+            method: 'PATCH', // partial modification
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -63,7 +59,8 @@ class BlogsServices{
     
     }
 
-    static addBlog = async (title, description) => {
+    // add a new blog to the passed language's endpoint
+    static addBlog = async (title, description, language) => {
 
         const currentDate = BlogUtils.getCurrentDate();
     
@@ -74,7 +71,7 @@ class BlogsServices{
             isLiked: false
         };
     
-        const response = await fetch('http://localhost:3000/blogs', {
+        const response = await fetch(`http://localhost:3000/${language}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

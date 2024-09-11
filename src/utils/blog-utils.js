@@ -1,5 +1,5 @@
 import swal from "sweetalert2";
-
+import { useTranslation } from "react-i18next";
 
 class BlogUtils {
 
@@ -15,18 +15,18 @@ class BlogUtils {
         return blogs;
     }
 
-    static errorAlert = (message) => {
+    static errorAlert = (title, text) => {
         swal.fire({
-            title: "Oops!",
-            text: `Somethig went wrong while trying to ${message}.`,
+            title: title,
+            text: text,
             icon: "error",
         });
     }
 
-    static successAlert = (message) => {
+    static successAlert = (title, text) => {
         swal.fire({
-            title: `${message}!`,
-            text: `The blog has been ${message}.`,
+            title: title,
+            text: text,
             icon: "success",
           });
     }

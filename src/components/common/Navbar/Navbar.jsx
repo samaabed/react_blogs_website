@@ -26,8 +26,8 @@ const Navbar = () => {
                 <div className={styles.navbarContentWraper}>
                     <a className=""><img className={styles.navbarLogo} src={logo} alt="oneextrapixel logo" /></a>
                     <ul className={styles.navBarList}>
-                        <li><Link to="/home">{t("common.home")}</Link></li>
-                        <li><Link to="/addBlog">{t("common.addNewBlog")}</Link></li>
+                        <li><Link to="/home">{t("home")}</Link></li>
+                        <li><Link to="/addBlog">{t("addNewBlog")}</Link></li>
 
                     </ul>
                     <div className={styles.dropdownMenu}>

@@ -1,129 +1,76 @@
 {
-  "en": {
-    "blogs": [
-      {
-        "id": "0",
-        "title": "30 beautiful google fonts for your website",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "June 11, 2024",
-        "isLiked": false
-      },
-      {
-        "id": "1",
-        "title": "design thinling 101 designers",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "December 15, 2017",
-        "isLiked": false
-      },
-      {
-        "id": "2",
-        "title": "15+ best angular admin dashboard templates of 2024 - users choice",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "May 22, 2023",
-        "isLiked": false
-      },
-      {
-        "id": "3",
-        "title": "26 best neon fonts to light up your designs for 2024",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "August 16, 2024",
-        "isLiked": false
-      },
-      {
-        "id": "4",
-        "title": "15 best brackets extensions for a smooth coding experience",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "June 3, 2024",
-        "isLiked": false
-      },
-      {
-        "id": "5",
-        "title": "what is color theory? — a comprehensive guide for designers",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "May 22, 2019",
-        "isLiked": false
-      },
-      {
-        "id": "50",
-        "title": "15 best brackets extensions for a smooth coding experience",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
-        "date": "June 3, 2024",
-        "isLiked": false
-      }
-    ],
-    "common": {
-      "home": "home",
-      "delete": "delete",
-      "update": "update",
-      "add": "add",
-      "addNewBlog": "add new blog",
-      "currentlyBrowsing": "currently browsing",
-      "desgin": "design",
-      "updateBlog": "update blog",
-      "blogTitle": "blog title",
-      "blogDescription": "blog description",
-      "allRightsReserved": "2024 onextrapixel. all rights reserved."
+  "en": [
+    {
+      "id": "0",
+      "title": "30 beautiful google fonts for your website",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
+      "date": "June 11, 2024",
+      "isLiked": false
+    },
+    {
+      "id": "1",
+      "title": "design",
+      "description": "design design design design design design design design design design design design design design design design",
+      "date": "December 15, 2017",
+      "isLiked": false
+    },
+    {
+      "id": "2",
+      "title": "15+ best angular admin dashboard templates of 2024 - users choice",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
+      "date": "May 22, 2023",
+      "isLiked": false
+    },
+    {
+      "id": "4",
+      "title": "15 best brackets extensions for a smooth coding experience",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
+      "date": "June 3, 2024",
+      "isLiked": false
+    },
+    {
+      "id": "5",
+      "title": "what is color theory? — a comprehensive guide for designers",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
+      "date": "May 22, 2019",
+      "isLiked": false
+    },
+    {
+      "id": "50",
+      "title": "15 best brackets extensions for a smooth coding experience",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus dictum enim, et tempor nunc luctus sit amet. Fusce lobortis porttitor quam a sollicitudin. In id placerat diam. Vestibulum molestie, orci in placerat sagittis, lorem ligula egestas nulla, id sollicitudin velit purus ac justo. Maecenas maximus ligula quis nisi mattis porttitor. Cras a dapibus magna. Phasellus varius ex sit amet dolor iaculis elementum. Sed urna sapien, maximus in mollis non, commodo et felis. Sed tincidunt duis.",
+      "date": "June 3, 2024",
+      "isLiked": false
     }
-    
-  },
-  "ar": {
-    "blogs": [
-      {
-        "id": "0",
-        "title": "30 خط جوجل جميل لموقعك على الويب",
-        "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
-        "date": "June 11, 2024",
-        "isLiked": false
-      },
-      {
-        "id": "1",
-        "title": "دليل 101 للمصممين",
-        "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
-        "date": "December 15, 2017",
-        "isLiked": false
-      },
-      {
-        "id": "2",
-        "title": "15+ من أفضل قوالب لوحات التحكم لعام 2024 - اختيار المستخدمين",
-        "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
-        "date": "May 22, 2023",
-        "isLiked": false
-      },
-      {
-        "id": "3",
-        "title": "أفضل 26 خط نيون لإضاءة تصميماتك لعام 2024",
-        "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
-        "date": "August 16, 2024",
-        "isLiked": false
-      },
-      {
-        "id": "4",
-        "title": "أفضل 15 اضافة الى  محرر الاكواد لتجربة برمجة سلسلة",
-        "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
-        "date": "June 3, 2024",
-        "isLiked": false
-      },
-      {
-        "id": "5",
-        "title": "ما هي نظرية الالوان؟ ",
-        "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
-        "date": "May 22, 2019",
-        "isLiked": false
-      }
-    ],
-    "common": {
-      "home": "الرئيسية",
-      "delete": "حذف",
-      "update": "تعديل",
-      "add": "اضافة",
-      "addNewBlog": "اضافة مقال جديد",
-      "currentlyBrowsing": "القسم الحالي",
-      "desgin": "التصميم",
-      "updateBlog": "تعديل المقال",
-      "blogTitle": "عنوان المقال",
-      "blogDescription": "وصف المقال",
-      "allRightsReserved": "جميع الحقوق محفوظة"
-
+  ],
+  "ar": [
+    {
+      "id": "1",
+      "title": "دليل 101 للمصممين",
+      "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
+      "date": "December 15, 2017",
+      "isLiked": false
+    },
+    {
+      "id": "2",
+      "title": "15+ من أفضل قوالب لوحات التحكم لعام 2024 - اختيار المستخدمين",
+      "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
+      "date": "May 22, 2023",
+      "isLiked": false
+    },
+    {
+      "id": "4",
+      "title": "أفضل 15 اضافة الى  محرر الاكواد لتجربة برمجة سلسلة",
+      "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
+      "date": "June 3, 2024",
+      "isLiked": false
+    },
+    {
+      "id": "5",
+      "title": "ما هي نظرية الالوان؟ ",
+      "description": "لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت لوريم إيبسوم دولور سيت أميت",
+      "date": "May 22, 2019",
+      "isLiked": false
     }
-  }
+  ]
 }

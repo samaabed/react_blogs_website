@@ -3,10 +3,48 @@ import blogImage from "../../../assets/images/dashboard.png";
 import { Link } from "react-router-dom";
 import BlogUtils from "../../../utils/blog-utils";
 import { useTranslation } from "react-i18next";
+import swal from "sweetalert2";
+import BlogsServices from "../../../services/blog-services";
+import i18n from "../../../i18n";
+import { useEffect, useState } from "react";
 
-export default function BlogsItem({blog}) {
+
+export default function BlogsItem({blog, blogs, setBlogs}) {
 
   const { t } = useTranslation();
+  const language = i18n.language;
+
+
+  const handleDelete = (blogId) => {
+    swal
+      .fire({
+        title: t("confirmDeleteMessageTitle"),
+        text: t("confirmDeleteMessageText"),
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: t("confirmDeleteMessageButton"),
+        cancelButtonText: t("cancel")
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          BlogsServices.deleteBlog(blogId,language)
+            .then(() => {
+              // also update in client side so we don't have to fetch the blogs again to view the update for the user
+              const updatedBlogs = blogs.filter((blog) => blog.id != blogId);
+              BlogUtils.sortBlogsByDate(updatedBlogs);
+              setBlogs(updatedBlogs); 
+            })
+            .then(() => {
+              BlogUtils.successAlert(t("deleteBlogDoneMessageTitle"), t("deleteBlogDoneMessageText"));
+            })
+            .catch(() => {
+              BlogUtils.errorAlert(t("oops", t("deleteBlogErrorMessageText")));
+            });
+        }
+      });
+  };
 
   return (
     <div className={styles.blogItem}>
@@ -28,11 +66,11 @@ export default function BlogsItem({blog}) {
           className={styles.deleteBtn}
           onClick={() => handleDelete(blog.id)}
         >
-          {t("common.delete")}
+          {t("delete")}
         </button>
 
         <button type="button" className={styles.updateBtn}>
-          <Link to={`/updateBlog/${blog.id}`}>{t("common.update")}</Link>
+          <Link to={`/updateBlog/${blog.id}`}>{t("update")}</Link>
         </button>
       </div>
     </div>
