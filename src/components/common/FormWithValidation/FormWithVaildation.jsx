@@ -85,7 +85,7 @@ const FormWithValidation = ({formType}) => {
           </label>
 
           {/*
-           note:
+           note: new 
            you can use <input id="title" {...formik.getFieldProps('title')} />
            which provides the props onChange, onBlur, and value for the field
            */}
