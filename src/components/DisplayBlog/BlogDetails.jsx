@@ -2,9 +2,11 @@ import { useState } from "react";
 import styles from "./BlogDetails.module.css";
 import blogImage from "../../assets/images/dashboard.png";
 
-const BlogDetails = (props) => {
-  const { blog } = props;
+
+const BlogDetails = ({blog}) => {
+
   const [isLiked, setLike] = useState(blog.isLiked);
+  
 
   const handleClick = async (blogId) => {
     const updatedBlog = {

@@ -1,5 +1,5 @@
 import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
+import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector"; // language detection plugin
 import HttpApi from "i18next-http-backend"; // to load translation resources
 
@@ -22,7 +22,8 @@ i18n
       caches: ["cookie"], // where to cache user language
     },
     backend: { 
-      loadPath: "http://localhost:3000/{{lng}}"
+      loadPath: "/locale/{{lng}}/translation.json"
+
     },
   });
 

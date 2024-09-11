@@ -1,6 +1,27 @@
 {
-    "title":{
-      "a": "الصفحة الرئيسية"
-    } ,
-    "description": "هذه هي الصفحة الرئيسية"
-  }
+    "home": "الرئيسية",
+    "delete": "حذف",
+    "update": "تعديل",
+    "add": "اضافة",
+    "addNewBlog": "اضافة مقال جديد",
+    "currentlyBrowsing": "القسم الحالي",
+    "desgin": "التصميم",
+    "updateBlog": "تعديل المقال",
+    "blogTitle": "عنوان المقال",
+    "blogDescription": "وصف المقال",
+    "allRightsReserved": "جميع الحقوق محفوظة",
+    "confirmDeleteMessageTitle": "هل أنت متأكد من الحذف؟",
+    "confirmDeleteMessageText": "لن يكون بإمكانك التراحع عن هذا!",
+    "confirmDeleteMessageButton": "احذف",
+    "cancel": "إلغاء",
+    "oops": "أوبس!",
+    "updateBlogDoneMessageTitle": "تم التعديل!",
+    "updateBlogDoneMessageText": "تم تعديل المقال",
+    "addBlogDoneMessageTitle": "تمت الإضافة!",
+    "addBlogDoneMessageText": "تمت إضافة المقال",
+    "deleteBlogDoneMessageTitle": "تم الحذف!",
+    "deleteBlogDoneMessageText": "تم حذف المقال.",
+    "addBlogErrorMessageText": "حدث خطأ أثناء محاولة إضافة المقال",
+    "updateBlogErrorMessageText": " حدث خطأ أثناء محاولة تعديل المقال",
+    "deleteBlogErrorMessageText": "حدث خطأ أثناء محاولة حذف المقال."
+}

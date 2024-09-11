@@ -34,7 +34,7 @@ const DisplayBlog = () => {
     return () => {
       dispatch(setLoading(false));
     };
-  }, []);
+  }, [language]);
 
   return (
     <>

@@ -14,34 +14,47 @@ import BlogsItem from "./BlogsItem";
 
 function BlogsSection() {
   const [blogs, setBlogs] = useState(null); 
+  const [error, setError] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentBlogs, setCurrentBlogs] = useState(null);
   const blogsPerPage = 6;
 
   const dispatch = useDispatch();
-
   const { t } = useTranslation();;
   const language = i18n.language;
+
   
   useEffect(() => {
     //reset loading state when th component mounts
     dispatch(setLoading(true));
-
+    
+    //display page 1 when language is changed
     setCurrentPage(1);
 
     setTimeout(() => {
-      let allBlogs = t('blogs', { returnObjects: true });
-      BlogUtils.sortBlogsByDate(allBlogs);
-      setBlogs(allBlogs);
-      dispatch(setLoading(false))
-
+      BlogServices.fetchBlogs()
+        .then((blogs) => {
+          BlogUtils.sortBlogsByDate(blogs);
+          setBlogs(blogs);
+          dispatch(setLoading(false));
+          // initial set of blogs to display
+          setCurrentBlogs(blogs.slice(0, blogsPerPage));
+        })
+        .catch(() => {
+          BlogUtils.errorAlert("fetch the blogs");
+          setError(true);
+          dispatch(setLoading(false));
+        });
+      console.log("use effect called");
     }, 1000);
 
     //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
     return () => {
+      // clearTimeout(timeoutId);
       dispatch(setLoading(false));
     };
   }, [language]);
+  
 
   useEffect(() => {
 
@@ -54,59 +67,23 @@ function BlogsSection() {
     
   }, [currentPage, blogs]);
 
-  const handleDelete = (blogId) => {
-    swal
-      .fire({
-        title: "Are you sure you want to delete this blog?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          BlogServices.deleteBlog(blogId)
-            .then(() => {
-              // also update in client side so we don't have to fetch the blogs again to view the update for the user
-              const updatedBlogs = blogs.filter((blog) => blog.id != blogId);
-              BlogUtils.sortBlogsByDate(updatedBlogs);
-              setBlogs(updatedBlogs); 
-            })
-            .then(() => {
-              swal.fire({
-                title: "Deleted!",
-                text: "The blog has been deleted.",
-                icon: "success",
-                confirmButtonText: "Ok",
-                confirmButtonColor: "#3085d6",
-              });
-            })
-            .catch(() => {
-              BlogUtils.errorAlert("delete the blog");
-            });
-        }
-      });
-  };
  
   return (
     <>
       {currentBlogs && (
         <>
           <header>
-            <h1 className={styles.sectionHeader}>{t("common.currentlyBrowsing")}: {t("common.desgin")}</h1>
+            <h1 className={styles.sectionHeader}>{t("currentlyBrowsing")}: {t("desgin")}</h1>
           </header>
-          {/* <button onClick={() => {i18n.changeLanguage("ar"); setCurrentPage(1);}}>ar</button>
-          <button onClick={() => {i18n.changeLanguage("en"); setCurrentPage(1);}}>en</button> */}
+    
           <main>
             <Link className={styles.addBlogLink} to="/addBlog">
-              {t("common.addNewBlog")}
+              {t("addNewBlog")}
             </Link>
 
             <div id={styles.blogsSection}>
               {currentBlogs.map((blog, index) => (
-                <BlogsItem key={index} blog={blog} />
+                <BlogsItem key={index} blog={blog} blogs={blogs} setBlogs={setBlogs}/>
               ))}
             </div>
 
