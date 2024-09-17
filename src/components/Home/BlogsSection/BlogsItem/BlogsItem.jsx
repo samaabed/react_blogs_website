@@ -1,12 +1,12 @@
-import styles from "./BlogsSection.module.css";
-import blogImage from "../../../assets/images/dashboard.png";
+import styles from "../BlogsSection.module.css";
+import blogImage from "../../../../assets/images/dashboard.png";
 import { Link } from "react-router-dom";
-import BlogUtils from "../../../utils/blog-utils";
+import BlogUtils from "../../../../utils/blog-utils";
 import { useTranslation } from "react-i18next";
 import swal from "sweetalert2";
-import BlogsServices from "../../../services/blog-services";
-import i18n from "../../../i18n";
-import { useEffect, useState } from "react";
+import BlogsServices from "../../../../services/blog-services";
+import i18n from "../../../../i18n";
+
 
 
 export default function BlogsItem({blog, blogs, setBlogs}) {
