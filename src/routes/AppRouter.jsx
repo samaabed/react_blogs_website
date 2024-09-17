@@ -1,13 +1,10 @@
 import {
     createBrowserRouter,
-    createRoutesFromElements,
     Route,
-  } from "react-router-dom";
-  import { ROUTES } from "./routes";
+} from "react-router-dom";
+import { ROUTES } from "./routes";
 
-const router = createBrowserRouter( 
-      ROUTES  
-  );
+const router = createBrowserRouter( ROUTES );
   
 
-  export default router;
+export default router;

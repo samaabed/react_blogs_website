@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
 import BlogsServices from "../../services/blog-services";
 import BlogDetails from "../../components/DisplayBlog";
 import { setLoading } from "../../store/slices/loaderSlice";
@@ -11,11 +11,10 @@ const DisplayBlog = () => {
   const [blog, setBlog] = useState(null);
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
-  
   const language = i18n.language;
-  
+
   useEffect(() => {
-    //reset loading state when th component mounts
+    // reset loading state when th component mounts
     dispatch(setLoading(true));
     
     setTimeout(() => {
@@ -30,11 +29,11 @@ const DisplayBlog = () => {
         });
     }, 1000);
 
-    //cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
+    // cleanup function (reset loading state if the compoenent unmounts before fetching is completed)
     return () => {
       dispatch(setLoading(false));
     };
-  }, [language]);
+  }, []);
 
   return (
     <>

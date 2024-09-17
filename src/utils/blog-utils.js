@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 class BlogUtils {
 
-    //sorts the blogs starting from latest ones
+    // sorts the blogs starting from latest ones
     static sortBlogsByDate = (blogs) => {
 
         blogs.sort((a, b) => {

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import i18n from '../../../i18n';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,11 +14,19 @@ const Navbar = () => {
 
     const { t } = useTranslation();
     const [dropDown, setDropDown] = useState(false);
+    const navigate  = useNavigate();
 
     const handleLanguageChange = (lang) => {
         i18n.changeLanguage(lang);
         const dir = lang == "ar" ? "rtl" : "ltr";
         document.documentElement.setAttribute('dir', dir);
+
+        // if user changes language in DisplayBlog page, redirect to  home page
+        const currentPath = window.location.pathname; // get the current path
+        console.log("current path "+ currentPath);
+        if (currentPath.match(/^\/displayBlog\/[a-zA-Z0-9]+$/)){
+            navigate("/home");
+        }
     }
 
     return (

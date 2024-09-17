@@ -2,7 +2,6 @@ import styles from "./BlogsSection.module.css";
 import { useEffect, useState } from "react";
 import BlogServices from "../../../services/blog-services";
 import BlogUtils from "../../../utils/blog-utils";
-import swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import Pagination from "../../common/Pagination";
 import { setLoading } from "../../../store/slices/loaderSlice";
@@ -22,7 +21,6 @@ function BlogsSection() {
   const dispatch = useDispatch();
   const { t } = useTranslation();;
   const language = i18n.language;
-
   
   useEffect(() => {
     //reset loading state when th component mounts

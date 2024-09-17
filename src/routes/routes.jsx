@@ -3,9 +3,7 @@ import Home from "../pages/HomePage";
 import DisplayBlog from "../pages/DisplayBlogPage";
 import { Navigate, useParams } from "react-router-dom";
 import BlogServices from "../services/blog-services"
-import FormWithValidation from "../components/common/FormWithValidation/FormWithVaildation";
-
-
+import FormWithValidation from "../pages/FormWithValidation";
 
 export const ROUTES = [
   {
@@ -24,10 +22,6 @@ export const ROUTES = [
       {
         path: "home",
         element: <Home />,
-        loader: async () => {
-          const reeponse =  await BlogServices.fetchBlogs();
-          return reeponse;
-        }
       },
       {
         path: "displayBlog/:id",
