@@ -2,11 +2,13 @@ import styles from "./FormWithVaildation.module.css";
 import BlogUtils from "../../utils/blog-utils";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BlogServices from "../../services/blog-services";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
+import React from "react";
+import { TFunction } from "i18next";
 
 
 const enLanguageRegex = /^[\x00-\x7F]+$/;
@@ -17,10 +19,10 @@ english digits 0-9
 all punctuation characters \p{P}
 all symbol characters (eg. dollar symbols) \p{S}
 */
-const arLanguageRegex = /^[\u0600-\u06FF\s0-9\p{P}\p{S}]+$/u;
+const arLanguageRegex: RegExp = /^[\u0600-\u06FF\s0-9\p{P}\p{S}]+$/u;
 
 
-const enFormValidationSchema = Yup.object().shape({
+const enFormValidationSchema: Yup.ObjectSchema<{title: string, description: string}> = Yup.object().shape({
   title: Yup.string()
     .matches(enLanguageRegex, "You must use English letters only")
     .required("Title is required")
@@ -34,7 +36,7 @@ const enFormValidationSchema = Yup.object().shape({
     .max(1000, "Description is too long - should be 1000 characters maximum"),
 });
 
-const arFormValidationSchema = Yup.object().shape({
+const arFormValidationSchema: Yup.ObjectSchema<{title: string, description: string}> = Yup.object().shape({
   title: Yup.string()
     .matches(arLanguageRegex, "يجب استخدام الحروف العربية فقط")
     .required("العنوان مطلوب")
@@ -44,45 +46,50 @@ const arFormValidationSchema = Yup.object().shape({
   description: Yup.string()
     .matches(arLanguageRegex, "يجب استخدام الحروف العربية فقط")
     .required("الوصف مطلوب")
-    .min(100, "الوصف قصير جدا - يحب أن يحتوي على أربع أحرف كحد أقل")
-    .max(1000, "الوصف طويل جدا - يمكن أن يحتوي على 100 حرف كحد أقصى"),
+    .min(100, "الوصف قصير جدا - يحب أن يحتوي على  100 حرف كحد أقل")
+    .max(1000, "الوصف طويل جدا - يمكن أن يحتوي على 1000 حرف كحد أقصى"),
 });
 
 
-const initialValues = {
+const initialValues = { 
   title: "",
   description: "",
 };
 
-const FormWithValidation = ({formType}) => {
-  const [blogTitle, setBlogTitle] = useState('');
-  const [blogDescription, setBlogDescription] = useState('');
+type Props = {
+  formType: string
+}
 
-  const { id: blogId } = useParams();
+const FormWithValidation = ({formType}: Props) => {
+  const [blogTitle, setBlogTitle] = useState<string>('');
+  const [blogDescription, setBlogDescription] = useState<string>('');
+  const language: string = i18n.language;
+
+  const { id: blogId } = useParams<{ id: string }>();
   
-  const { t } = useTranslation();
+  const { t }: { t: TFunction } = useTranslation();
 
-  const formik = useFormik({
+  const formik = useFormik({ 
     initialValues: initialValues,
-    validationSchema: i18n.language == "en" ? enFormValidationSchema : arFormValidationSchema,
+    validationSchema: language == "en" ? enFormValidationSchema : arFormValidationSchema,
     onSubmit: (values, { resetForm }) => {
       if (formType == "addBlog") {
       
-        BlogServices.addBlog(values.title, values.description, i18n.language)
+        BlogServices.addBlog(values.title, values.description, language)
           .then(() => {
             BlogUtils.successAlert(t("addBlogDoneMessageTitle"), t("addBlogDoneMessageText"));
             resetForm(); //reset form
           })
-          .catch((e) => {
+          .catch((e: Error) => {
             BlogUtils.errorAlert(t("oops"), t("addBlogErrorMessageText"));
           });
       } else if (formType == "updateBlog") {
-        BlogServices.updateBlog(blogId, values.title, values.description, i18n.language)
+        BlogServices.updateBlog(blogId, values.title, values.description, language)
           .then(() => {
             BlogUtils.successAlert(t("updateBlogDoneMessageTitle"), t("updateBlogDoneMessageText"));
             resetForm(); //reset form
           })
-          .catch((e) => {
+          .catch((e: Error) => {
             BlogUtils.errorAlert(t("oops"), t("updateBlogErrorMessageText"));
           });
       }
@@ -105,7 +112,6 @@ const FormWithValidation = ({formType}) => {
       <h2 className={styles.formHeader}>
         {formType == "addBlog" ? t("addNewBlog") : t("updateBlog")}
       </h2>
-      <p>{console.log(i18n.language)}</p>
       <form onSubmit={formik.handleSubmit} className={styles.addBlogForm}>
         <div className={styles.formRow}>
           <label htmlFor={styles.blogTitle} className={styles.inputHeader}>

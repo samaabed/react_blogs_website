@@ -9,18 +9,21 @@ import { useDispatch } from "react-redux";
 import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
 import BlogsItem from "./BlogsItem";
-
+import React from "react";
+import Blog from "../../../Blog";
+import { Dispatch } from "redux";
+import { TFunction } from "i18next";
 
 function BlogsSection() {
-  const [blogs, setBlogs] = useState(null); 
-  const [error, setError] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [currentBlogs, setCurrentBlogs] = useState(null);
-  const blogsPerPage = 6;
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [error, setError] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentBlogs, setCurrentBlogs] = useState<Blog[]>([]);
+  const blogsPerPage: number = 6;
 
-  const dispatch = useDispatch();
-  const { t } = useTranslation();;
-  const language = i18n.language;
+  const dispatch: Dispatch = useDispatch();
+  const { t }: { t: TFunction } = useTranslation();
+  const language: string = i18n.language;
   
   useEffect(() => {
     //reset loading state when th component mounts
@@ -31,7 +34,7 @@ function BlogsSection() {
 
     setTimeout(() => {
       BlogServices.fetchBlogs()
-        .then((blogs) => {
+        .then((blogs: Blog[]) => {
           BlogUtils.sortBlogsByDate(blogs);
           setBlogs(blogs);
           dispatch(setLoading(false));
@@ -58,8 +61,8 @@ function BlogsSection() {
 
     // update currentBlogs when currentPage or blogsPerPage changes
     if (blogs != null) {
-      const lastBlogIndex = currentPage * blogsPerPage;
-      const firstBlogIndex = lastBlogIndex - blogsPerPage;
+      const lastBlogIndex: number = currentPage * blogsPerPage;
+      const firstBlogIndex: number = lastBlogIndex - blogsPerPage;
       setCurrentBlogs(blogs.slice(firstBlogIndex, lastBlogIndex));
     }
     
@@ -68,7 +71,7 @@ function BlogsSection() {
  
   return (
     <>
-      {currentBlogs && (
+      {currentBlogs.length > 0 && (
         <>
           <header>
             <h1 className={styles.sectionHeader}>{t("currentlyBrowsing")}: {t("desgin")}</h1>
@@ -89,7 +92,7 @@ function BlogsSection() {
               totalBlogs={blogs.length}
               blogsPerPage={blogsPerPage}
               setCurrentPage={setCurrentPage}
-              currentPage={currentPage}
+              currentPage={currentPage}                                                           
             />
           </main>
         </>

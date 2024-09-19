@@ -1,19 +1,28 @@
 import { useState } from "react";
 import styles from "./BlogDetails.module.css";
 import blogImage from "../../assets/images/dashboard.png";
+import React from "react";
+import Blog from "../../Blog";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
+import {faHeart as solidHeart} from '@fortawesome/free-solid-svg-icons';
+import i18n from "../../i18n.js";
 
+type Props = {
+  blog: Blog
+}
 
-const BlogDetails = ({blog}) => {
-
-  const [isLiked, setLike] = useState(blog.isLiked);
+const BlogDetails = ({blog}: Props) => {
+ 
+  const [isLiked, setLike] = useState<boolean>(blog.isLiked);
+  const language: string = i18n.language;
   
-
-  const handleClick = async (blogId) => {
+  const handleClick = async (blogId: string): Promise<void> => {
     const updatedBlog = {
       isLiked: !isLiked,
     };
 
-    const response = await fetch(`http://localhost:3000/blogs/${blogId}`, {
+    const response: Response = await fetch(`http://localhost:3000/${language}/${blogId}`, {
       method: "PATCH", //partial modification
       headers: {
         "Content-Type": "application/json",
@@ -36,9 +45,10 @@ const BlogDetails = ({blog}) => {
             onClick={() => handleClick(blog.id)}
           >
             {isLiked == true ? (
-              <i className="fa-solid fa-heart fa-xl"></i>
+              <FontAwesomeIcon icon={solidHeart} size="xl" className={styles.likeButton}/>
             ) : (
-              <i className="fa-regular fa-heart fa-xl"></i>
+              <FontAwesomeIcon icon={regularHeart} size="xl" className={styles.likeButton}/>
+
             )}
           </button>
         </div>
