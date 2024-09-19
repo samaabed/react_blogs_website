@@ -5,13 +5,16 @@ import BlogDetails from "../../components/DisplayBlog";
 import { setLoading } from "../../store/slices/loaderSlice";
 import { useDispatch } from "react-redux";
 import i18n from "../../i18n";
+import Blog from "../../Blog";
+import { Dispatch } from "redux";
+import React from "react";
 
 const DisplayBlog = () => {
-  const { id } = useParams();
-  const [blog, setBlog] = useState(null);
-  const [error, setError] = useState(false);
-  const dispatch = useDispatch();
-  const language = i18n.language;
+  const { id } = useParams<{ id: string }>(); 
+  const [blog, setBlog] = useState<Blog>();
+  const [error, setError] = useState<boolean>(false);
+  const dispatch: Dispatch = useDispatch();
+  const language: string = i18n.language;
 
   useEffect(() => {
     // reset loading state when th component mounts
@@ -19,7 +22,7 @@ const DisplayBlog = () => {
     
     setTimeout(() => {
       BlogsServices.fetchBlogById(id, language)
-        .then((blog) => {
+        .then((blog: Blog) => {
           setBlog(blog);
           dispatch(setLoading(false));
         })

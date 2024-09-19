@@ -6,16 +6,23 @@ import { useTranslation } from "react-i18next";
 import swal from "sweetalert2";
 import BlogsServices from "../../../../services/blog-services";
 import i18n from "../../../../i18n";
+import Blog from "../../../../Blog";
+import React from "react";
+import { TFunction } from "i18next";
+
+type Props = {
+  blog: Blog,
+  blogs: Blog[],
+  setBlogs: React.Dispatch<React.SetStateAction<Blog[]>>
+}
+
+export default function BlogsItem({blog, blogs, setBlogs}: Props) {
+
+  const { t }: { t: TFunction } = useTranslation();
+  const language: string = i18n.language;
 
 
-
-export default function BlogsItem({blog, blogs, setBlogs}) {
-
-  const { t } = useTranslation();
-  const language = i18n.language;
-
-
-  const handleDelete = (blogId) => {
+  const handleDelete = (blogId: string): void => {
     swal
       .fire({
         title: t("confirmDeleteMessageTitle"),
@@ -29,7 +36,7 @@ export default function BlogsItem({blog, blogs, setBlogs}) {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          BlogsServices.deleteBlog(blogId,language)
+          BlogsServices.deleteBlog(blogId, language)
             .then(() => {
               // also update in client side so we don't have to fetch the blogs again to view the update for the user
               const updatedBlogs = blogs.filter((blog) => blog.id != blogId);
@@ -64,7 +71,7 @@ export default function BlogsItem({blog, blogs, setBlogs}) {
         <button
           type="button"
           className={styles.deleteBtn}
-          onClick={() => handleDelete(blog.id)}
+          onClick={() => handleDelete(blog.id!)}
         >
           {t("delete")}
         </button>
